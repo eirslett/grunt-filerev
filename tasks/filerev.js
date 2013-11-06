@@ -48,8 +48,9 @@ module.exports = function (grunt) {
           grunt.file.copy(file, resultPath);
         }
 
-        filerev.summary[path.normalize(file)] = path.join(dirname, newName);
-        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + filerev.summary[file]);
+        var newNamePath = path.join(dirname, newName);
+        filerev.summary[path.normalize(file)] = newNamePath;
+        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + newNamePath;
       });
       next();
     }, this.async());
